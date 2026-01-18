@@ -1,0 +1,37 @@
+-- Count total students
+SELECT COUNT(*) AS total_students FROM students;
+-- Output: 5
+
+-- Average age
+SELECT AVG(age) AS average_age FROM students;
+-- Output: 21
+
+-- Min and Max age
+SELECT MIN(age) AS minimum_age, MAX(age) AS maximum_age FROM students;
+
+-- Course-wise student count
+SELECT course, COUNT(*) AS student_count FROM students GROUP BY course;
+
+-- Students age > 20
+SELECT COUNT(*) AS students_above_20 FROM students WHERE age > 20;
+
+-- Courses with more than 1 student
+SELECT course, COUNT(*) AS student_count
+FROM students
+GROUP BY course
+HAVING COUNT(*) > 1;
+
+-- Courses ordered by highest count
+SELECT course, COUNT(*) AS student_count
+FROM students
+GROUP BY course
+ORDER BY student_count DESC;
+
+-- Latest 3 students
+SELECT * FROM students ORDER BY created_at DESC LIMIT 3;
+
+-- Top 5 oldest students
+SELECT * FROM students ORDER BY age DESC LIMIT 5;
+
+-- React students sorted by age
+SELECT * FROM students WHERE course = 'React' ORDER BY age DESC;

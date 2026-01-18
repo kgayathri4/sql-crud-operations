@@ -1,0 +1,32 @@
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    age INTEGER,
+    course TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO students (name, email, age, course)
+VALUES
+('Rahul Sharma', 'rahul@gmail.com', 21, 'React'),
+('Ananya Singh', 'ananya@gmail.com', 19, 'Node.js'),
+('Vikram Rao', 'vikram@gmail.com', 23, 'React'),
+('Sneha Patel', 'sneha@gmail.com', 20, 'Python'),
+('Arjun Mehta', 'arjun@gmail.com', 22, 'Node.js');
+
+
+
+SELECT * FROM students;
+SELECT name, email FROM students;
+SELECT * FROM students WHERE age > 20;
+SELECT * FROM students WHERE course = 'React';
+
+
+UPDATE students SET age = 22 WHERE email = 'rahul@gmail.com';
+UPDATE students SET course = 'Backend Development' WHERE course = 'Node.js';
+
+
+DELETE FROM students WHERE id = 2;
+DELETE FROM students WHERE age < 20;
